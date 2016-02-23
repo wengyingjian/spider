@@ -14,7 +14,8 @@ public class ElemePageProcessor implements PageProcessor {
     @Override
     public void process(Page page) {
 //        page.
-        System.out.println("page:"+page.getHtml());
+        System.out.println("page!!! fount ");
+        System.out.println("page:" + page.getHtml());
     }
 
     @Override

@@ -24,5 +24,6 @@ public class ElemeTest {
                 .setDownloader(new SeleniumDownloader(chromeDrivePath))
                 .thread(1)
                 .run();
+        System.out.println("end...");
     }
 }
