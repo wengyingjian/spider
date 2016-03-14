@@ -5,36 +5,88 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.wengyingjian.spider</groupId>
-    <artifactId>spider-test</artifactId>
+    <artifactId>spider-parent</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-            <groupId>us.codecraft</groupId>
-            <artifactId>webmagic-core</artifactId>
-            <version>0.5.3</version>
-        </dependency>
 
-        <dependency>
-            <groupId>us.codecraft</groupId>
-            <artifactId>webmagic-extension</artifactId>
-            <version>0.5.3</version>
-        </dependency>
-        <dependency>
-            <groupId>us.codecraft</groupId>
-            <artifactId>webmagic-selenium</artifactId>
-            <version>0.5.2</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-        </dependency>
-        <!--<dependency>-->
-        <!--<groupId>org.seleniumhq.selenium</groupId>-->
-        <!--<artifactId>selenium-chrome-driver</artifactId>-->
-        <!--<version>2.52.0</version>-->
-        <!--</dependency>-->
-    </dependencies>
+    <modules>
+        <module>spider-core</module>
+        <module>spider-dao</module>
+        <module>spider-service</module>
+    </modules>
+
+    <properties>
+        <spider.dao.version>${project.version}</spider.dao.version>
+        <spider.service.version>${project.version}</spider.service.version>
+        <webmagic.version>0.5.3</webmagic.version>
+        <webmagic.core.version>0.5.3</webmagic.core.version>
+        <webmagic.extension.version>0.5.3</webmagic.extension.version>
+        <webmagic.selenium.version>0.5.2</webmagic.selenium.version>
+        <hibernate.version>5.1.0.Final</hibernate.version>
+        <junit.version>4.12</junit.version>
+        <mysql.version>5.1.38</mysql.version>
+    </properties>
+
+
+    <dependencyManagement>
+        <dependencies>
+
+
+            <dependency>
+                <groupId>com.wengyingjian.spider</groupId>
+                <artifactId>spider-dao</artifactId>
+                <version>${spider.dao.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.wengyingjian.spider</groupId>
+                <artifactId>spider-service</artifactId>
+                <version>${spider.service.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${hibernate.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>us.codecraft</groupId>
+                <artifactId>webmagic-core</artifactId>
+                <version>${webmagic.core.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>us.codecraft</groupId>
+                <artifactId>webmagic-extension</artifactId>
+                <version>${webmagic.extension.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>us.codecraft</groupId>
+                <artifactId>webmagic-selenium</artifactId>
+                <version>${webmagic.selenium.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!--<dependency>-->
+            <!--<groupId>org.seleniumhq.selenium</groupId>-->
+            <!--<artifactId>selenium-chrome-driver</artifactId>-->
+            <!--<version>2.52.0</version>-->
+            <!--</dependency>-->
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>
